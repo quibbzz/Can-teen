@@ -129,7 +129,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1382, 100);
+            this.panel1.Size = new System.Drawing.Size(1348, 100);
             this.panel1.TabIndex = 4;
             // 
             // pictureBox1
@@ -770,26 +770,29 @@
             // 
             // txtboxCustomername
             // 
-            this.txtboxCustomername.Location = new System.Drawing.Point(1033, 115);
+            this.txtboxCustomername.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtboxCustomername.Location = new System.Drawing.Point(1033, 112);
             this.txtboxCustomername.Name = "txtboxCustomername";
-            this.txtboxCustomername.Size = new System.Drawing.Size(294, 27);
+            this.txtboxCustomername.Size = new System.Drawing.Size(294, 30);
             this.txtboxCustomername.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(818, 762);
+            this.label4.Location = new System.Drawing.Point(817, 769);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 18);
             this.label4.TabIndex = 9;
             this.label4.Text = "TOTAL:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(905, 753);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(905, 762);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 27);
+            this.textBox1.Size = new System.Drawing.Size(422, 30);
             this.textBox1.TabIndex = 10;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -845,7 +848,7 @@
             // 
             // connectionbtn
             // 
-            this.connectionbtn.Location = new System.Drawing.Point(947, 718);
+            this.connectionbtn.Location = new System.Drawing.Point(935, 719);
             this.connectionbtn.Name = "connectionbtn";
             this.connectionbtn.Size = new System.Drawing.Size(124, 29);
             this.connectionbtn.TabIndex = 17;
@@ -874,12 +877,12 @@
             this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // Form1
+            // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1382, 979);
+            this.ClientSize = new System.Drawing.Size(1348, 979);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.connectionbtn);
@@ -894,7 +897,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "orderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
