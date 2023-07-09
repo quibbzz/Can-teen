@@ -19,7 +19,8 @@ namespace Can_teen
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            new LogIn().Show();
+            this.Hide();
         }
     }
 }
