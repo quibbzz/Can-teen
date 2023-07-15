@@ -59,20 +59,45 @@ namespace Can_teen
             try
             {
                 con.Open();
-                string insertQuery = "INSERT INTO userAcc VALUES ('" + txtName.Text +"','"+ textUsername.Text+"','"+ textPassword.Text +"')";
+                string insertQuery = "INSERT INTO user_accounts ([user_name], [username], [password], [address], [age], [phone_num]) " +
+                    "VALUES (@Name, @Username, @Password, @Address, @Age, @Phone)";
 
-                cmd = new OleDbCommand(insertQuery, con);
-                cmd.ExecuteNonQuery();
+                using (OleDbCommand cmd = new OleDbCommand(insertQuery, con))
+                {
+                    cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@Username", textUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", textPassword.Text);
+                    cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
+                    cmd.Parameters.AddWithValue("@Age", txtAge.Text);
+                    cmd.Parameters.AddWithValue("@Phone", txtPhone.Text);
+                    cmd.ExecuteNonQuery();
+                }
 
-                MessageBox.Show("Registration successfull.");
-
-                con.Close();
+                MessageBox.Show("Registration successful.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred : " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
             }
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

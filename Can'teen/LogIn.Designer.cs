@@ -167,6 +167,7 @@
             this.ClientSize = new System.Drawing.Size(800, 543);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

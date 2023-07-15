@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCash = new System.Windows.Forms.TextBox();
+            this.txtChange = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -49,15 +49,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "CASH";
             // 
-            // textBox1
+            // txtAmount
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(37, 228);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(439, 43);
-            this.textBox1.TabIndex = 1;
+            this.txtAmount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
+            this.txtAmount.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAmount.ForeColor = System.Drawing.Color.White;
+            this.txtAmount.Location = new System.Drawing.Point(37, 228);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(439, 43);
+            this.txtAmount.TabIndex = 1;
             // 
             // label2
             // 
@@ -81,25 +81,25 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "CASH";
             // 
-            // textBox2
+            // txtCash
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(37, 344);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(439, 43);
-            this.textBox2.TabIndex = 4;
+            this.txtCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
+            this.txtCash.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCash.ForeColor = System.Drawing.Color.White;
+            this.txtCash.Location = new System.Drawing.Point(37, 344);
+            this.txtCash.Name = "txtCash";
+            this.txtCash.Size = new System.Drawing.Size(439, 43);
+            this.txtCash.TabIndex = 4;
             // 
-            // textBox3
+            // txtChange
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(37, 455);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(439, 43);
-            this.textBox3.TabIndex = 5;
+            this.txtChange.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
+            this.txtChange.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtChange.ForeColor = System.Drawing.Color.White;
+            this.txtChange.Location = new System.Drawing.Point(37, 455);
+            this.txtChange.Name = "txtChange";
+            this.txtChange.Size = new System.Drawing.Size(439, 43);
+            this.txtChange.TabIndex = 5;
             // 
             // label4
             // 
@@ -132,13 +132,15 @@
             this.ClientSize = new System.Drawing.Size(513, 662);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtChange);
+            this.Controls.Add(this.txtCash);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "cashPayment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "cashPayment";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,11 +150,11 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtAmount;
         private Label label2;
         private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtCash;
+        private TextBox txtChange;
         private Label label4;
         private Button button1;
     }

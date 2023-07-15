@@ -36,7 +36,7 @@ namespace Can_teen
         private void savebtn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string login = "SELECT * FROM userAcc WHERE username= @username and password= @password";
+            string login = "SELECT * FROM user_accounts WHERE username= @username and password= @password";
             cmd = new OleDbCommand(login, con);
             cmd.Parameters.AddWithValue("@username", txtUser.Text);
             cmd.Parameters.AddWithValue("@password", txtpass.Text);

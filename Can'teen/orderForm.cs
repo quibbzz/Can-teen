@@ -20,8 +20,8 @@ namespace Can_teen
 
         public orderForm()
         {
-            myConn = new OleDbConnection("Provider= Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\quibi\\Documents\\Database1.accdb");
             InitializeComponent();
+            myConn = new OleDbConnection("Provider= Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\quibi\\Documents\\Database1.accdb");
         }
 
         OleDbConnection? myConn;
@@ -38,7 +38,8 @@ namespace Can_teen
         {
             LoadGridData();
 
-            siombtn.Checked = false;
+            RestTextBoxes();
+            RestRadioBoxes();
         }
 
 
@@ -218,8 +219,9 @@ namespace Can_teen
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            {
-                double totalAmount = 0;
+            { 
+
+                double totalAmount = CalculateTotalAmount();
 
                 // Compute the total amount based on the selected items and quantities
                 if (siombtn.Checked) // Siomai
@@ -270,17 +272,17 @@ namespace Can_teen
 
                 string customerName = txtboxCustomername.Text;
 
-                // Display the total amount and customer name
-                MessageBox.Show($"Customer: {customerName}\nTotal Amount: P{totalAmount.ToString("0.00")}");
                 textBox1.Text = totalAmount.ToString("P 0.00");
+
+
                 try
                 {
                     myConn.Open();
 
                     // Insert the order details into the Orders table
-                    string insertOrderQuery = "INSERT INTO [Order] (Customername, siomaiqnty, hamqnty, pancitqnty, ginataanqnty, " +
-                        "tocinoqnty, lumpiaqnty, cokeqnty, waterqnty, spriteqnty) VALUES (@CustomerName, @SiomaiQty, " +
-                        "@HamQty, @PancitQty, @GinataanQty, @TocinoQty, @LumpiaQty, @CokeQty, @WaterQty, @SpriteQty)";
+                    string insertOrderQuery = "INSERT INTO [Orders] (customer_name, siomaiqnty, hamqnty, pancitqnty, ginataanqnty, " +
+                        "tocinoqnty, lumpiaqnty, cokeqnty, waterqnty, spriteqnty, total_amount, added_on) VALUES (@CustomerName, @SiomaiQty, " +
+                        "@HamQty, @PancitQty, @GinataanQty, @TocinoQty, @LumpiaQty, @CokeQty, @WaterQty, @SpriteQty, @totalAmount, @AddedOn)";
 
                     using (OleDbCommand insertOrderCommand = new OleDbCommand(insertOrderQuery, myConn))
                     {
@@ -294,6 +296,9 @@ namespace Can_teen
                         insertOrderCommand.Parameters.AddWithValue("@CokeQty", cokeqty.Text);
                         insertOrderCommand.Parameters.AddWithValue("@WaterQty", waterqty.Text);
                         insertOrderCommand.Parameters.AddWithValue("@SpriteQty", spriteqty.Text);
+                        insertOrderCommand.Parameters.AddWithValue("@TotalAmount", totalAmount);
+                        insertOrderCommand.Parameters.AddWithValue("@AddedOn", DateTime.Now.ToString("MM/dd/yyyy"));
+
 
                         insertOrderCommand.ExecuteNonQuery();
                     }
@@ -308,19 +313,43 @@ namespace Can_teen
                     MessageBox.Show("An error occurred while saving the order: " + ex.Message);
                 }
             }
+
+        }
+        private double CalculateTotalAmount()
+        {
+            double totalAmount = 0;
+
+            totalAmount += GetQuantity(siomqty.Text) * PriceSiomai;
+            totalAmount += GetQuantity(hamqty.Text) * PriceHam;
+            totalAmount += GetQuantity(panqty.Text) * PricePancit;
+            totalAmount += GetQuantity(ginataqty.Text) * PriceGinataan;
+            totalAmount += GetQuantity(pizzqty.Text) * PriceTocino;
+            totalAmount += GetQuantity(lumpqty.Text) * PriceLumpia;
+            totalAmount += GetQuantity(cokeqty.Text) * PriceCoke;
+            totalAmount += GetQuantity(waterqty.Text) * PriceWater;
+            totalAmount += GetQuantity(spriteqty.Text) * PriceSprite;
+
+            return totalAmount;
         }
 
-            private void LoadGridData()
+        private int GetQuantity(string quantityText)
+        {
+            int quantity = 0;
+            int.TryParse(quantityText, out quantity);
+            return quantity;
+        }
+
+        private void LoadGridData()
             {
                 try
                 {
                     myConn.Open();
 
-                    string selectOrderQuery = "SELECT * FROM [Order]";
+                    string selectOrderQuery = "SELECT * FROM [Orders]";
                     da = new OleDbDataAdapter(selectOrderQuery, myConn);
                     ds = new DataSet();
-                    da.Fill(ds, "Order");
-                    gridOrders.DataSource = ds.Tables["Order"];
+                    da.Fill(ds, "Orders");
+                    gridOrders.DataSource = ds.Tables["Orders"];
 
                     myConn.Close();
                 }
@@ -331,36 +360,35 @@ namespace Can_teen
             }
 
             private void gridOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-               try
-    {
-        string selectedDate = dateTimePicker1.Value.ToShortDateString();
-
-        myConn.Open();
-
-        // Retrieve the orders for the selected date from the Order table
-        string selectOrderQuery = "SELECT * FROM [Order] WHERE YourDateColumnName = @SelectedDate"; // Replace YourDateColumnName with the actual column name in your table
-        using (OleDbCommand cmd = new OleDbCommand(selectOrderQuery, myConn))
-        {
-            cmd.Parameters.AddWithValue("@SelectedDate", selectedDate);
-
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
             {
-                DataTable orderTable = new DataTable();
-                adapter.Fill(orderTable);
+                try
+                {
+                    //string selectedDate = dateTimePicker1.Value.ToShortDateString();
+                    myConn.Open();
 
-                // Bind the data to the gridOrders DataGridView
-                gridOrders.DataSource = orderTable;
+                // Retrieve the orders for the selected date from the Order table
+                //string selectOrderQuery = "SELECT * FROM [Order] WHERE added_on = @OrderDate"; // Replace YourDateColumnName with the actual column name in your table
+                //using (OleDbCommand cmd = new OleDbCommand(selectOrdersQuery, myConn))
+                //{
+                //cmd.Parameters.AddWithValue("@orderdatee", added_on);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                        {
+                            DataTable orderTable = new DataTable();
+                            adapter.Fill(orderTable);
+
+                            // Bind the data to the gridOrders DataGridView
+                            gridOrders.DataSource = orderTable;
+                        }
+                    //}
+
+                    myConn.Close();
+                }
+                catch (Exception ex)
+                {
+                MessageBox.Show("An error occurred while retrieving the order data: " + ex.Message);
+                }
             }
-        }
-
-        myConn.Close();
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("An error occurred while retrieving the order data: " + ex.Message);
-    }
-}
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -375,6 +403,12 @@ namespace Can_teen
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new userSalesReport().Show();
+            this.Hide();
         }
     }
 }

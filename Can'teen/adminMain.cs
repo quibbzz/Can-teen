@@ -22,5 +22,23 @@ namespace Can_teen
             new LogIn().Show();
             this.Hide();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new addUser().Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new accountList().Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new adminSalesReport().Show();
+            this.Hide();
+        }
     }
 }

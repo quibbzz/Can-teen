@@ -39,6 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.lblAge = new System.Windows.Forms.Label();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +63,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Coral;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.txtPhone);
+            this.panel1.Controls.Add(this.lblAge);
+            this.panel1.Controls.Add(this.txtAge);
+            this.panel1.Controls.Add(this.lblAddress);
+            this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.signUpbtn);
             this.panel1.Controls.Add(this.label4);
@@ -69,7 +81,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(24, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(471, 551);
+            this.panel1.Size = new System.Drawing.Size(471, 688);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -77,7 +89,7 @@
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(142, 506);
+            this.linkLabel1.Location = new System.Drawing.Point(142, 652);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(173, 20);
             this.linkLabel1.TabIndex = 9;
@@ -90,7 +102,7 @@
             this.signUpbtn.BackColor = System.Drawing.Color.Transparent;
             this.signUpbtn.Font = new System.Drawing.Font("Monument Extended", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.signUpbtn.ForeColor = System.Drawing.Color.IndianRed;
-            this.signUpbtn.Location = new System.Drawing.Point(21, 393);
+            this.signUpbtn.Location = new System.Drawing.Point(21, 583);
             this.signUpbtn.Name = "signUpbtn";
             this.signUpbtn.Size = new System.Drawing.Size(435, 56);
             this.signUpbtn.TabIndex = 8;
@@ -172,14 +184,77 @@
             this.label1.Text = "Sign up";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Form3
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAddress.ForeColor = System.Drawing.Color.White;
+            this.lblAddress.Location = new System.Drawing.Point(21, 407);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(66, 18);
+            this.lblAddress.TabIndex = 11;
+            this.lblAddress.Text = "Address";
+            this.lblAddress.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.Coral;
+            this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAddress.Location = new System.Drawing.Point(21, 377);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(435, 27);
+            this.txtAddress.TabIndex = 10;
+            this.txtAddress.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // lblAge
+            // 
+            this.lblAge.AutoSize = true;
+            this.lblAge.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAge.ForeColor = System.Drawing.Color.White;
+            this.lblAge.Location = new System.Drawing.Point(21, 467);
+            this.lblAge.Name = "lblAge";
+            this.lblAge.Size = new System.Drawing.Size(39, 18);
+            this.lblAge.TabIndex = 13;
+            this.lblAge.Text = "Age";
+            // 
+            // txtAge
+            // 
+            this.txtAge.BackColor = System.Drawing.Color.Coral;
+            this.txtAge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAge.Location = new System.Drawing.Point(21, 437);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(435, 27);
+            this.txtAge.TabIndex = 12;
+            this.txtAge.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(21, 534);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 18);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Phone Number";
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.Color.Coral;
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone.Location = new System.Drawing.Point(21, 504);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(435, 27);
+            this.txtPhone.TabIndex = 14;
+            // 
+            // signUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
-            this.ClientSize = new System.Drawing.Size(527, 563);
+            this.ClientSize = new System.Drawing.Size(527, 722);
             this.Controls.Add(this.panel1);
-            this.Name = "Form3";
+            this.Name = "signUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -202,5 +277,11 @@
         private TextBox textUsername;
         private Button signUpbtn;
         private LinkLabel linkLabel1;
+        private Label lblAddress;
+        private TextBox txtAddress;
+        private Label lblAge;
+        private TextBox txtAge;
+        private Label label5;
+        private TextBox txtPhone;
     }
 }
