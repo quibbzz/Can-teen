@@ -63,11 +63,9 @@ namespace Can_teen
             {
                 cn.Open();
 
-                // Create a parameterized query to pass the date value
                 string selectTotalAmountQuery = "SELECT sum(total_amount) FROM Orders WHERE added_on = @OrderDate";
                 using (OleDbCommand cmd = new OleDbCommand(selectTotalAmountQuery, cn))
                 {
-                    // Pass the date value as a parameter
                     cmd.Parameters.AddWithValue("@OrderDate", DateTime.Now.Date);
 
                     object totalAmount = cmd.ExecuteScalar();
@@ -92,21 +90,20 @@ namespace Can_teen
                 cn.Close();
             }
         }
+
         public void Weekly()
         {
             try
             {
                 cn.Open();
 
-                // Calculate the start and end dates of the current week
                 DateTime startDate = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
                 DateTime endDate = startDate.AddDays(6);
 
-                // Create a parameterized query to pass the date range
+                
                 string selectTotalAmountQuery = "SELECT SUM(total_amount) FROM Orders WHERE added_on BETWEEN @StartDate AND @EndDate";
                 using (OleDbCommand cmd = new OleDbCommand(selectTotalAmountQuery, cn))
                 {
-                    // Pass the start and end dates as parameters
                     cmd.Parameters.AddWithValue("@StartDate", startDate);
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
 
@@ -132,21 +129,20 @@ namespace Can_teen
                 cn.Close();
             }
         }
+
         public void Monthly()
         {
             try
             {
                 cn.Open();
 
-                // Calculate the start and end dates of the current month
                 DateTime startDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
                 DateTime endDate = startDate.AddMonths(1).AddDays(-1);
 
-                // Create a parameterized query to pass the date range
                 string selectTotalAmountQuery = "SELECT SUM(total_amount) FROM Orders WHERE added_on BETWEEN @StartDate AND @EndDate";
                 using (OleDbCommand cmd = new OleDbCommand(selectTotalAmountQuery, cn))
                 {
-                    // Pass the start and end dates as parameters
+                    
                     cmd.Parameters.AddWithValue("@StartDate", startDate);
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
 
@@ -179,15 +175,14 @@ namespace Can_teen
             {
                 cn.Open();
 
-                // Calculate the start and end dates of the current year
+                
                 DateTime startDate = new DateTime(DateTime.Today.Year, 1, 1);
                 DateTime endDate = startDate.AddYears(1).AddDays(-1);
 
-                // Create a parameterized query to pass the date range
+                
                 string selectTotalAmountQuery = "SELECT SUM(total_amount) FROM Orders WHERE added_on BETWEEN @StartDate AND @EndDate";
                 using (OleDbCommand cmd = new OleDbCommand(selectTotalAmountQuery, cn))
                 {
-                    // Pass the start and end dates as parameters
                     cmd.Parameters.AddWithValue("@StartDate", startDate);
                     cmd.Parameters.AddWithValue("@EndDate", endDate);
 
@@ -214,7 +209,6 @@ namespace Can_teen
             }
         }
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             new adminMain().Show();
@@ -227,6 +221,11 @@ namespace Can_teen
         }
 
         private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -6,6 +6,7 @@ namespace Can_teen
 {
     public partial class orderForm : Form
     {
+
         const double PriceSiomai = 8;
         const double PriceHam = 10;
         const double PricePancit = 15;
@@ -80,7 +81,7 @@ namespace Can_teen
                     {
                         if (control == txtboxCustomername)
                         {
-                            control.Text = string.Empty; // clear the text without attempting conversion
+                            control.Text = string.Empty; 
                         }
                         else
                         {
@@ -219,9 +220,9 @@ namespace Can_teen
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            { 
+            {
 
-                double totalAmount = CalculateTotalAmount();
+                double totalAmount = 0;
 
                 // Compute the total amount based on the selected items and quantities
                 if (siombtn.Checked) // Siomai
@@ -268,21 +269,26 @@ namespace Can_teen
                 {
                     int spriteQty = int.Parse(spriteqty.Text);
                     totalAmount += spriteQty * PriceSprite;
+                    
                 }
 
                 string customerName = txtboxCustomername.Text;
 
                 textBox1.Text = totalAmount.ToString("P 0.00");
 
+                
 
                 try
                 {
                     myConn.Open();
 
+
                     // Insert the order details into the Orders table
                     string insertOrderQuery = "INSERT INTO [Orders] (customer_name, siomaiqnty, hamqnty, pancitqnty, ginataanqnty, " +
                         "tocinoqnty, lumpiaqnty, cokeqnty, waterqnty, spriteqnty, total_amount, added_on) VALUES (@CustomerName, @SiomaiQty, " +
                         "@HamQty, @PancitQty, @GinataanQty, @TocinoQty, @LumpiaQty, @CokeQty, @WaterQty, @SpriteQty, @totalAmount, @AddedOn)";
+
+                    
 
                     using (OleDbCommand insertOrderCommand = new OleDbCommand(insertOrderQuery, myConn))
                     {
@@ -315,11 +321,13 @@ namespace Can_teen
             }
 
         }
+
+        /*
         private double CalculateTotalAmount()
         {
             double totalAmount = 0;
 
-            totalAmount += GetQuantity(siomqty.Text) * PriceSiomai;
+            totalAmount += GetQuantity(siomqty.Text);
             totalAmount += GetQuantity(hamqty.Text) * PriceHam;
             totalAmount += GetQuantity(panqty.Text) * PricePancit;
             totalAmount += GetQuantity(ginataqty.Text) * PriceGinataan;
@@ -330,6 +338,31 @@ namespace Can_teen
             totalAmount += GetQuantity(spriteqty.Text) * PriceSprite;
 
             return totalAmount;
+        }
+        */
+
+        private double SubtractTotalStocks()
+        {
+            double totalQuantity = 0;
+            try
+            {
+                myConn.Open();
+
+                string ham = "SELECT num_stock FROM stock WHERE stock_id = 2";
+                using (OleDbCommand cmd = new OleDbCommand(ham, myConn))
+                {
+                    totalQuantity = Convert.ToInt32(ham) - GetQuantity(hamqty.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving the total amount: " + ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+            return totalQuantity;
         }
 
         private int GetQuantity(string quantityText)
@@ -409,6 +442,12 @@ namespace Can_teen
         {
             new userSalesReport().Show();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new productStocks().Show(); 
+            this.Hide();    
         }
     }
 }

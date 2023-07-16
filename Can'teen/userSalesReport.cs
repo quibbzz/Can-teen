@@ -35,7 +35,7 @@ namespace Can_teen
                 myConn.Open();
 
                 // Retrieve the orders for the selected date from the Order table
-                string selectOrderQuery = "SELECT added_on FROM [Order] WHERE added_on = @OrderDate"; // Replace [Order] with the actual table name and added_on with the actual column name in your table
+                string selectOrderQuery = "SELECT added_on FROM [Orders] WHERE added_on = @OrderDate"; // Replace [Order] with the actual table name and added_on with the actual column name in your table
                 using (OleDbCommand cmd = new OleDbCommand(selectOrderQuery, myConn))
                 {
                     cmd.Parameters.AddWithValue("@OrderDate", selectedDate);

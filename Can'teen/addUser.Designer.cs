@@ -42,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,7 +137,7 @@
             this.txtUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtUsername.ForeColor = System.Drawing.Color.White;
-            this.txtUsername.Location = new System.Drawing.Point(34, 487);
+            this.txtUsername.Location = new System.Drawing.Point(34, 562);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(449, 31);
             this.txtUsername.TabIndex = 9;
@@ -145,7 +147,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(14)))));
-            this.label5.Location = new System.Drawing.Point(34, 461);
+            this.label5.Location = new System.Drawing.Point(34, 536);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 23);
             this.label5.TabIndex = 8;
@@ -156,7 +158,7 @@
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.ForeColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(34, 570);
+            this.txtPassword.Location = new System.Drawing.Point(34, 645);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(449, 31);
             this.txtPassword.TabIndex = 11;
@@ -166,7 +168,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(14)))));
-            this.label6.Location = new System.Drawing.Point(34, 544);
+            this.label6.Location = new System.Drawing.Point(34, 619);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(123, 23);
             this.label6.TabIndex = 10;
@@ -177,7 +179,7 @@
             this.button1.BackColor = System.Drawing.Color.Brown;
             this.button1.Font = new System.Drawing.Font("Monument Extended", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(50, 639);
+            this.button1.Location = new System.Drawing.Point(47, 696);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 47);
             this.button1.TabIndex = 12;
@@ -190,7 +192,7 @@
             this.button2.BackColor = System.Drawing.Color.White;
             this.button2.Font = new System.Drawing.Font("Monument Extended", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.button2.Location = new System.Drawing.Point(258, 639);
+            this.button2.Location = new System.Drawing.Point(255, 696);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(202, 47);
             this.button2.TabIndex = 13;
@@ -198,12 +200,35 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtPhone.ForeColor = System.Drawing.Color.White;
+            this.txtPhone.Location = new System.Drawing.Point(34, 479);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(449, 31);
+            this.txtPhone.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(14)))));
+            this.label7.Location = new System.Drawing.Point(34, 453);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(175, 23);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "PHONE NUMBER: ";
+            // 
             // addUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ClientSize = new System.Drawing.Size(520, 724);
+            this.ClientSize = new System.Drawing.Size(520, 773);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtPassword);
@@ -242,5 +267,7 @@
         private Label label6;
         private Button button1;
         private Button button2;
+        private TextBox txtPhone;
+        private Label label7;
     }
 }
