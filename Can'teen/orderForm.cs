@@ -17,8 +17,6 @@ namespace Can_teen
         const double PriceWater = 15;
         const double PriceSprite = 20;
 
-
-
         public orderForm()
         {
             InitializeComponent();
@@ -223,6 +221,7 @@ namespace Can_teen
             {
 
                 double totalAmount = 0;
+                double stocks = 0; 
 
                 // Compute the total amount based on the selected items and quantities
                 if (siombtn.Checked) // Siomai
@@ -276,12 +275,9 @@ namespace Can_teen
 
                 textBox1.Text = totalAmount.ToString("P 0.00");
 
-                
-
                 try
                 {
                     myConn.Open();
-
 
                     // Insert the order details into the Orders table
                     string insertOrderQuery = "INSERT INTO [Orders] (customer_name, siomaiqnty, hamqnty, pancitqnty, ginataanqnty, " +
@@ -289,7 +285,6 @@ namespace Can_teen
                         "@HamQty, @PancitQty, @GinataanQty, @TocinoQty, @LumpiaQty, @CokeQty, @WaterQty, @SpriteQty, @totalAmount, @AddedOn)";
 
                     
-
                     using (OleDbCommand insertOrderCommand = new OleDbCommand(insertOrderQuery, myConn))
                     {
                         insertOrderCommand.Parameters.AddWithValue("@CustomerName", customerName);
@@ -311,8 +306,120 @@ namespace Can_teen
 
                     MessageBox.Show("Order saved successfully.");
 
+
+                    // Siomai
+                    string subtractSiomai = "UPDATE stock SET [num_stock] = [num_stock] - @siomaiQty WHERE [stock_id] = 1";
+                    using (OleDbCommand insertSiomaiCommand = new OleDbCommand(subtractSiomai, myConn))
+                    {
+                        int siomaiQty;
+                        if (int.TryParse(siomqty.Text, out siomaiQty))
+                        {
+                            insertSiomaiCommand.Parameters.AddWithValue("@siomaiQty", siomaiQty);
+                            insertSiomaiCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Ham
+                    string subtractHam = "UPDATE stock SET [num_stock] = [num_stock] - @hamQty WHERE [stock_id] = 2";
+                    using (OleDbCommand insertHamCommand = new OleDbCommand(subtractHam, myConn))
+                    {
+                        int hamQty;
+                        if (int.TryParse(hamqty.Text, out hamQty))
+                        {
+                            insertHamCommand.Parameters.AddWithValue("@hamQty", hamQty);
+                            insertHamCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Pancit
+                    string subtractPancit = "UPDATE stock SET [num_stock] = [num_stock] - @panQty WHERE [stock_id] = 3";
+                    using (OleDbCommand insertPancitCommand = new OleDbCommand(subtractPancit, myConn))
+                    {
+                        int panQty;
+                        if (int.TryParse(panqty.Text, out panQty))
+                        {
+                            insertPancitCommand.Parameters.AddWithValue("@panQty", panQty);
+                            insertPancitCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Ginataan
+                    string subtractGinataan = "UPDATE stock SET [num_stock] = [num_stock] - @ginataQty WHERE [stock_id] = 4";
+                    using (OleDbCommand insertGinataanCommand = new OleDbCommand(subtractGinataan, myConn))
+                    {
+                        int ginataQty;
+                        if (int.TryParse(ginataqty.Text, out ginataQty))
+                        {
+                            insertGinataanCommand.Parameters.AddWithValue("@ginataQty", ginataQty);
+                            insertGinataanCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Tocino
+                    string subtractTocino = "UPDATE stock SET [num_stock] = [num_stock] - @tocinoQty WHERE [stock_id] = 5";
+                    using (OleDbCommand insertTocinoCommand = new OleDbCommand(subtractTocino, myConn))
+                    {
+                        int tocinoQty;
+                        if (int.TryParse(pizzqty.Text, out tocinoQty))
+                        {
+                            insertTocinoCommand.Parameters.AddWithValue("@tocinoQty", tocinoQty);
+                            insertTocinoCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Lumpia
+                    string subtractLumpia = "UPDATE stock SET [num_stock] = [num_stock] - @lumpiaQty WHERE [stock_id] = 6";
+                    using (OleDbCommand insertLumpiaCommand = new OleDbCommand(subtractLumpia, myConn))
+                    {
+                        int lumpiaQty;
+                        if (int.TryParse(lumpqty.Text, out lumpiaQty))
+                        {
+                            insertLumpiaCommand.Parameters.AddWithValue("@lumpiaQty", lumpiaQty);
+                            insertLumpiaCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Coke
+                    string subtractCoke = "UPDATE stock SET [num_stock] = [num_stock] - @cokeQty WHERE [stock_id] = 7";
+                    using (OleDbCommand insertCokeCommand = new OleDbCommand(subtractCoke, myConn))
+                    {
+                        int cokeQty;
+                        if (int.TryParse(cokeqty.Text, out cokeQty))
+                        {
+                            insertCokeCommand.Parameters.AddWithValue("@cokeQty", cokeQty);
+                            insertCokeCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Water
+                    string subtractWater = "UPDATE stock SET [num_stock] = [num_stock] - @waterQty WHERE [stock_id] = 8";
+                    using (OleDbCommand insertWaterCommand = new OleDbCommand(subtractWater, myConn))
+                    {
+                        int waterQty;
+                        if (int.TryParse(waterqty.Text, out waterQty))
+                        {
+                            insertWaterCommand.Parameters.AddWithValue("@waterQty", waterQty);
+                            insertWaterCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                    // Sprite
+                    string subtractSprite = "UPDATE stock SET [num_stock] = [num_stock] - @spriteQty WHERE [stock_id] = 9";
+                    using (OleDbCommand insertSpriteCommand = new OleDbCommand(subtractSprite, myConn))
+                    {
+                        int spriteQty;
+                        if (int.TryParse(spriteqty.Text, out spriteQty))
+                        {
+                            insertSpriteCommand.Parameters.AddWithValue("@spriteQty", spriteQty);
+                            insertSpriteCommand.ExecuteNonQuery();
+                        }
+                    }
+
+
                     myConn.Close();
                     LoadGridData();
+
+
                 }
                 catch (Exception ex)
                 {
@@ -341,30 +448,6 @@ namespace Can_teen
         }
         */
 
-        private double SubtractTotalStocks()
-        {
-            double totalQuantity = 0;
-            try
-            {
-                myConn.Open();
-
-                string ham = "SELECT num_stock FROM stock WHERE stock_id = 2";
-                using (OleDbCommand cmd = new OleDbCommand(ham, myConn))
-                {
-                    totalQuantity = Convert.ToInt32(ham) - GetQuantity(hamqty.Text);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while retrieving the total amount: " + ex.Message);
-            }
-            finally
-            {
-                myConn.Close();
-            }
-            return totalQuantity;
-        }
-
         private int GetQuantity(string quantityText)
         {
             int quantity = 0;
@@ -373,31 +456,31 @@ namespace Can_teen
         }
 
         private void LoadGridData()
+        {
+            try
             {
-                try
-                {
-                    myConn.Open();
+                myConn.Open();
 
-                    string selectOrderQuery = "SELECT * FROM [Orders]";
-                    da = new OleDbDataAdapter(selectOrderQuery, myConn);
-                    ds = new DataSet();
-                    da.Fill(ds, "Orders");
-                    gridOrders.DataSource = ds.Tables["Orders"];
+                string selectOrderQuery = "SELECT * FROM [Orders]";
+                da = new OleDbDataAdapter(selectOrderQuery, myConn);
+                ds = new DataSet();
+                da.Fill(ds, "Orders");
+                gridOrders.DataSource = ds.Tables["Orders"];
 
-                    myConn.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while loading the order data: " + ex.Message);
-                }
+                myConn.Close();
             }
-
-            private void gridOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            catch (Exception ex)
             {
-                try
-                {
-                    //string selectedDate = dateTimePicker1.Value.ToShortDateString();
-                    myConn.Open();
+                MessageBox.Show("An error occurred while loading the order data: " + ex.Message);
+            }
+        }
+
+        private void gridOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //string selectedDate = dateTimePicker1.Value.ToShortDateString();
+                myConn.Open();
 
                 // Retrieve the orders for the selected date from the Order table
                 //string selectOrderQuery = "SELECT * FROM [Order] WHERE added_on = @OrderDate"; // Replace YourDateColumnName with the actual column name in your table
@@ -406,44 +489,39 @@ namespace Can_teen
                 //cmd.Parameters.AddWithValue("@orderdatee", added_on);
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
-                        {
-                            DataTable orderTable = new DataTable();
-                            adapter.Fill(orderTable);
-
-                            // Bind the data to the gridOrders DataGridView
-                            gridOrders.DataSource = orderTable;
-                        }
-                    //}
-
-                    myConn.Close();
-                }
-                catch (Exception ex)
                 {
-                MessageBox.Show("An error occurred while retrieving the order data: " + ex.Message);
+                    DataTable orderTable = new DataTable();
+                    adapter.Fill(orderTable);
+
+                    // Bind the data to the gridOrders DataGridView
+                    gridOrders.DataSource = orderTable;
                 }
+                //}
+                myConn.Close();
             }
+            catch (Exception ex)
+            {
+              MessageBox.Show("An error occurred while retrieving the order data: " + ex.Message);
+            }
+        }
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
-
         private void btnPayment_Click(object sender, EventArgs e)
         {
             new paymentOpt().Show();
             this.Hide();
         }
-
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             new userSalesReport().Show();
             this.Hide();
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             new productStocks().Show(); 

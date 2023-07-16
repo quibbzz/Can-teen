@@ -46,8 +46,6 @@ namespace Can_teen
 
                 dataGridView1.DataSource = ds.Tables["Accounts"];
 
-
-
                 con.Close();
             }
             catch (Exception ex)

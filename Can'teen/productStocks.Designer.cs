@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.lblProdId = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.txtStocks = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(435, 610);
             this.panel1.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Brown;
+            this.button2.Font = new System.Drawing.Font("Monument Extended", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.SystemColors.Window;
+            this.button2.Location = new System.Drawing.Point(28, 412);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(374, 54);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "REMOVE";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // lblProdId
             // 
@@ -186,6 +199,7 @@
             this.txtStocks.Name = "txtStocks";
             this.txtStocks.Size = new System.Drawing.Size(379, 31);
             this.txtStocks.TabIndex = 27;
+            this.txtStocks.TextChanged += new System.EventHandler(this.txtStocks_TextChanged);
             // 
             // label6
             // 
@@ -197,19 +211,6 @@
             this.label6.Size = new System.Drawing.Size(202, 23);
             this.label6.TabIndex = 26;
             this.label6.Text = "NUMBER OF STOCKS";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Brown;
-            this.button2.Font = new System.Drawing.Font("Monument Extended", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.button2.Location = new System.Drawing.Point(28, 412);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(374, 54);
-            this.button2.TabIndex = 39;
-            this.button2.Text = "REMOVE";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // productStocks
             // 

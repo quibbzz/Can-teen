@@ -103,5 +103,10 @@ namespace Can_teen
             MessageBox.Show("updated successfully");
             LoadStockData();
         }
+
+        private void txtStocks_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
