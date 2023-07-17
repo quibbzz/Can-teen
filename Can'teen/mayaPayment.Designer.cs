@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblamount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -92,18 +92,18 @@
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
-            // label6
+            // lblamount
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(166, 571);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(180, 44);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "₱ 100.00 ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lblamount.AutoSize = true;
+            this.lblamount.BackColor = System.Drawing.Color.White;
+            this.lblamount.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblamount.ForeColor = System.Drawing.Color.Black;
+            this.lblamount.Location = new System.Drawing.Point(166, 571);
+            this.lblamount.Name = "lblamount";
+            this.lblamount.Size = new System.Drawing.Size(180, 44);
+            this.lblamount.TabIndex = 9;
+            this.lblamount.Text = "₱ 100.00 ";
+            this.lblamount.Click += new System.EventHandler(this.label6_Click);
             // 
             // button1
             // 
@@ -123,7 +123,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(167)))), ((int)(((byte)(83)))));
             this.ClientSize = new System.Drawing.Size(502, 783);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblamount);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -148,7 +148,7 @@
         private Label label1;
         private Label label2;
         private PictureBox pictureBox3;
-        private Label label6;
+        private Label lblamount;
         private Button button1;
     }
 }

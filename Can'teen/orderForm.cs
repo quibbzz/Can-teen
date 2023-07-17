@@ -215,13 +215,15 @@ namespace Can_teen
             System.Windows.Forms.MessageBox.Show("Connected successfully!");
             myConn.Close();
         }
-
+        public static double TotalAmount { get; set; }
         private void savebtn_Click(object sender, EventArgs e)
         {
             {
 
                 double totalAmount = 0;
-                double stocks = 0; 
+
+                TotalAmount= totalAmount;
+
 
                 // Compute the total amount based on the selected items and quantities
                 if (siombtn.Checked) // Siomai
@@ -461,7 +463,9 @@ namespace Can_teen
             {
                 myConn.Open();
 
-                string selectOrderQuery = "SELECT * FROM [Orders]";
+                string selectOrderQuery = "SELECT * FROM [Orders] ORDER BY ID DESC";
+                //string selectOrderQuery = "SELECT TOP 1 FROM [Orders] WHERE column1 IS NOT NULL AND column2 IS NOT NULL AND column3 IS NOT NULL ORDER BY ID DESC";
+
                 da = new OleDbDataAdapter(selectOrderQuery, myConn);
                 ds = new DataSet();
                 da.Fill(ds, "Orders");

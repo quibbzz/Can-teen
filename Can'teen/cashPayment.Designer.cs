@@ -36,6 +36,7 @@
             this.txtChange = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -58,6 +59,7 @@
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(439, 43);
             this.txtAmount.TabIndex = 1;
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // label2
             // 
@@ -116,7 +118,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(191, 613);
+            this.button1.Location = new System.Drawing.Point(176, 613);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 37);
             this.button1.TabIndex = 7;
@@ -124,12 +126,25 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(176, 558);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 37);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "ENTER ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // cashPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(97)))), ((int)(((byte)(29)))));
             this.ClientSize = new System.Drawing.Size(513, 662);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtChange);
@@ -157,5 +172,6 @@
         private TextBox txtChange;
         private Label label4;
         private Button button1;
+        private Button button2;
     }
 }

@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblamount = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -132,18 +132,18 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "************** ABCD";
             // 
-            // label6
+            // lblamount
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(93)))), ((int)(((byte)(228)))));
-            this.label6.Location = new System.Drawing.Point(152, 562);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 44);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "₱ 100.00";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lblamount.AutoSize = true;
+            this.lblamount.BackColor = System.Drawing.Color.White;
+            this.lblamount.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblamount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(93)))), ((int)(((byte)(228)))));
+            this.lblamount.Location = new System.Drawing.Point(152, 562);
+            this.lblamount.Name = "lblamount";
+            this.lblamount.Size = new System.Drawing.Size(170, 44);
+            this.lblamount.TabIndex = 8;
+            this.lblamount.Text = "₱ 100.00";
+            this.lblamount.Click += new System.EventHandler(this.label6_Click);
             // 
             // button1
             // 
@@ -164,7 +164,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(93)))), ((int)(((byte)(228)))));
             this.ClientSize = new System.Drawing.Size(495, 763);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblamount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -195,7 +195,7 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
+        private Label lblamount;
         private Button button1;
     }
 }
