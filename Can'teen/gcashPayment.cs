@@ -70,8 +70,49 @@ namespace Can_teen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new orderForm().Show();
-            this.Hide();
+            try
+            {
+                myConn.Open();
+
+                string selectIDQuery = "SELECT TOP 1 ID FROM Orders ORDER BY ID DESC";
+                int id = 0;
+
+                using (OleDbCommand selectIDCommand = new OleDbCommand(selectIDQuery, myConn))
+                {
+                    object result = selectIDCommand.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        id = Convert.ToInt32(result);
+                    }
+                }
+
+
+                double totalAmount = Convert.ToDouble(lblamount.Text.Replace("P", "").Replace(",", "").Trim());
+
+                string insertPaymentQuery = "INSERT INTO payment ([order_id], [payment_method], [total_amount], [amount_given], [change]) " +
+                      "VALUES (@OrderID, @PaymentMethod, @TotalAmount, @AmountGiven, @Change)";
+
+                using (OleDbCommand cmd = new OleDbCommand(insertPaymentQuery, myConn))
+                {
+                    cmd.Parameters.AddWithValue("@OrderID", id);
+                    cmd.Parameters.AddWithValue("@PaymentMethod", "GCASH");
+                    cmd.Parameters.AddWithValue("@TotalAmount", totalAmount);
+                    cmd.Parameters.AddWithValue("@AmountGiven", totalAmount);
+                    cmd.Parameters.AddWithValue("@Change", 0);
+
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Payment saved successfully.");
+
+                new orderForm().Show();
+                this.Hide();
+
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving the payment: " + ex.Message);
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Can_teen
 {
@@ -79,6 +80,45 @@ namespace Can_teen
                 {
                     double change = cash - totalAmount;
                     txtChange.Text = change.ToString("P 0.00");
+
+                    try
+                    {
+                        myConn.Open();
+
+                        string selectIDQuery = "SELECT TOP 1 ID FROM Orders ORDER BY ID DESC";
+                        int id = 0;
+
+                        using (OleDbCommand selectIDCommand = new OleDbCommand(selectIDQuery, myConn))
+                        {
+                            object result = selectIDCommand.ExecuteScalar();
+                            if (result != null && result != DBNull.Value)
+                            {
+                                id = Convert.ToInt32(result);
+                            }
+                        }
+
+                        string insertPaymentQuery = "INSERT INTO payment ([order_id], [payment_method], [total_amount], [amount_given], [change]) " +
+                            "VALUES (@OrderID, @PaymentMethod, @TotalAmount, @AmountGiven, @Change)";
+
+                        using (OleDbCommand cmd = new OleDbCommand(insertPaymentQuery, myConn))
+                        {
+                            cmd.Parameters.AddWithValue("@OrderID", id);
+                            cmd.Parameters.AddWithValue("@PaymentMethod", "CASH");
+                            cmd.Parameters.AddWithValue("@TotalAmount", totalAmount);
+                            cmd.Parameters.AddWithValue("@AmountGiven", cash);
+                            cmd.Parameters.AddWithValue("@Change", change);
+
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Payment saved successfully.");
+
+                        myConn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred while saving the payment: " + ex.Message);
+                    }
                 }
                 else
                 {

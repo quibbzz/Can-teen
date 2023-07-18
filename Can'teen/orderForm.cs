@@ -417,6 +417,24 @@ namespace Can_teen
                         }
                     }
 
+                    // STOCK CHECKER 
+                    /*
+                    string checkStocks = "SELECT [num_stock] FROM stock";
+                    using (OleDbCommand selectStocksCommand = new OleDbCommand(checkStocks, myConn))
+                    {
+                        int stockQuantity = Convert.ToInt32(selectStocksCommand.ExecuteScalar());
+
+                        if (stockQuantity <= 0)
+                        {
+                            MessageBox.Show("Out of stock");
+                        }
+                        else
+                        {
+                            
+                        }
+                    }
+                    */
+
 
                     myConn.Close();
                     LoadGridData();

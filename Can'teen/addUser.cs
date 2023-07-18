@@ -64,5 +64,10 @@ namespace Can_teen
                 con.Close();
             }
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
