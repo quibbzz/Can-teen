@@ -21,6 +21,7 @@ namespace Can_teen
             Weekly();
             Monthly();
             Yearly();
+            //SalesSummary();
         }
 
         OleDbConnection? cn;
@@ -189,9 +190,9 @@ namespace Can_teen
                     object totalAmount = cmd.ExecuteScalar();
                     if (totalAmount != null && totalAmount != DBNull.Value)
                     {
-                        double total = 0.00;
-                        double.TryParse(totalAmount.ToString(), out total);
-                        lblYearly.Text = total.ToString("#,##0.00");
+                        double Yearlytotal = 0.00;
+                        double.TryParse(totalAmount.ToString(), out Yearlytotal);
+                        lblYearly.Text = Yearlytotal.ToString("#,##0.00");
                     }
                     else
                     {
@@ -208,6 +209,44 @@ namespace Can_teen
                 cn.Close();
             }
         }
+
+        private void SalesSummary()
+        {
+            try
+            {
+                cn.Open();
+
+                double DailySales = 0;
+                double WeeklySales = 0;
+                double MonthlySales = 0;
+                double YearlySales = 0;
+                DateTime today = DateTime.Today;
+
+                string insertSalesQuery = "INSERT INTO sales_summary (daily_sales, weekly_sales, monthly_sales, yearly_sales, sales_date) " +
+                                       "VALUES (@DailySales, @WeeklySales, @MonthlySales, @YearlySales, @SalesDate)";
+                using (OleDbCommand insertSalesCommand = new OleDbCommand(insertSalesQuery, cn))
+                {
+                    Double.TryParse(lblDaily.Text, out DailySales);
+                    Double.TryParse(lblWeekly.Text, out WeeklySales);
+                    Double.TryParse(lblMonthly.Text, out MonthlySales);
+                    Double.TryParse(lblYearly.Text, out YearlySales);
+                    insertSalesCommand.Parameters.AddWithValue("@DailySales",DailySales);
+                    insertSalesCommand.Parameters.AddWithValue("@WeeklySales", WeeklySales);
+                    insertSalesCommand.Parameters.AddWithValue("@MonthlySales", MonthlySales);
+                    insertSalesCommand.Parameters.AddWithValue("@YearlySales", YearlySales);
+                    insertSalesCommand.Parameters.AddWithValue("@SalesDate", today);
+
+                    insertSalesCommand.ExecuteNonQuery();
+                }
+                
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while updating sales summary: " + ex.Message);
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -228,6 +267,14 @@ namespace Can_teen
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now.TimeOfDay >= new TimeSpan(23, 59, 0))
+            {
+                SalesSummary();
+            }
         }
     }
 }

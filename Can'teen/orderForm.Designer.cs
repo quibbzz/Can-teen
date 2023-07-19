@@ -29,53 +29,62 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.lblSpriteStcks = new System.Windows.Forms.Label();
             this.spriteqty = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.spribtn = new System.Windows.Forms.RadioButton();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblLumpiaStcks = new System.Windows.Forms.Label();
             this.lumpqty = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lumpbtn = new System.Windows.Forms.RadioButton();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.lblWaterStcks = new System.Windows.Forms.Label();
             this.waterqty = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.waterbtn = new System.Windows.Forms.RadioButton();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.lblCokeStcks = new System.Windows.Forms.Label();
             this.cokeqty = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.cokebtn = new System.Windows.Forms.RadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblPancitStcks = new System.Windows.Forms.Label();
             this.panqty = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pancitbtn = new System.Windows.Forms.RadioButton();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lblTocinoStcks = new System.Windows.Forms.Label();
             this.pizzqty = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pizzbtn = new System.Windows.Forms.RadioButton();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.lblGinataanStcks = new System.Windows.Forms.Label();
             this.ginataqty = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.ginabtn = new System.Windows.Forms.RadioButton();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblHamStcks = new System.Windows.Forms.Label();
             this.hambtn = new System.Windows.Forms.RadioButton();
             this.hamqty = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -83,6 +92,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblSiomaiStcks = new System.Windows.Forms.Label();
             this.siombtn = new System.Windows.Forms.RadioButton();
             this.siomqty = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -99,7 +109,6 @@
             this.connectionbtn = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnPayment = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -135,6 +144,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1348, 100);
             this.panel1.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(817, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(205, 77);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "STOCKS";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -175,7 +197,7 @@
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Location = new System.Drawing.Point(12, 106);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(799, 861);
+            this.panel2.Size = new System.Drawing.Size(799, 906);
             this.panel2.TabIndex = 5;
             // 
             // label2
@@ -183,7 +205,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Monument Extended", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(64, 562);
+            this.label2.Location = new System.Drawing.Point(79, 590);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(655, 44);
             this.label2.TabIndex = 9;
@@ -193,15 +215,26 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.Controls.Add(this.lblSpriteStcks);
             this.panel9.Controls.Add(this.spriteqty);
             this.panel9.Controls.Add(this.label22);
             this.panel9.Controls.Add(this.label11);
             this.panel9.Controls.Add(this.pictureBox8);
             this.panel9.Controls.Add(this.spribtn);
-            this.panel9.Location = new System.Drawing.Point(557, 618);
+            this.panel9.Location = new System.Drawing.Point(557, 631);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(204, 230);
+            this.panel9.Size = new System.Drawing.Size(204, 275);
             this.panel9.TabIndex = 8;
+            // 
+            // lblSpriteStcks
+            // 
+            this.lblSpriteStcks.AutoSize = true;
+            this.lblSpriteStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSpriteStcks.Location = new System.Drawing.Point(90, 238);
+            this.lblSpriteStcks.Name = "lblSpriteStcks";
+            this.lblSpriteStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblSpriteStcks.TabIndex = 16;
+            this.lblSpriteStcks.Text = "10";
             // 
             // spriteqty
             // 
@@ -257,15 +290,26 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.lblLumpiaStcks);
             this.panel6.Controls.Add(this.lumpqty);
             this.panel6.Controls.Add(this.label17);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.pictureBox5);
             this.panel6.Controls.Add(this.lumpbtn);
-            this.panel6.Location = new System.Drawing.Point(557, 317);
+            this.panel6.Location = new System.Drawing.Point(557, 314);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(204, 230);
+            this.panel6.Size = new System.Drawing.Size(204, 266);
             this.panel6.TabIndex = 5;
+            // 
+            // lblLumpiaStcks
+            // 
+            this.lblLumpiaStcks.AutoSize = true;
+            this.lblLumpiaStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblLumpiaStcks.Location = new System.Drawing.Point(90, 234);
+            this.lblLumpiaStcks.Name = "lblLumpiaStcks";
+            this.lblLumpiaStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblLumpiaStcks.TabIndex = 13;
+            this.lblLumpiaStcks.Text = "10";
             // 
             // lumpqty
             // 
@@ -320,15 +364,26 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.Controls.Add(this.lblWaterStcks);
             this.panel10.Controls.Add(this.waterqty);
             this.panel10.Controls.Add(this.label21);
             this.panel10.Controls.Add(this.label12);
             this.panel10.Controls.Add(this.pictureBox9);
             this.panel10.Controls.Add(this.waterbtn);
-            this.panel10.Location = new System.Drawing.Point(295, 618);
+            this.panel10.Location = new System.Drawing.Point(295, 630);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(204, 230);
+            this.panel10.Size = new System.Drawing.Size(204, 273);
             this.panel10.TabIndex = 7;
+            // 
+            // lblWaterStcks
+            // 
+            this.lblWaterStcks.AutoSize = true;
+            this.lblWaterStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWaterStcks.Location = new System.Drawing.Point(86, 239);
+            this.lblWaterStcks.Name = "lblWaterStcks";
+            this.lblWaterStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblWaterStcks.TabIndex = 15;
+            this.lblWaterStcks.Text = "10";
             // 
             // waterqty
             // 
@@ -383,15 +438,27 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.Controls.Add(this.lblCokeStcks);
             this.panel11.Controls.Add(this.cokeqty);
             this.panel11.Controls.Add(this.label20);
             this.panel11.Controls.Add(this.label13);
             this.panel11.Controls.Add(this.pictureBox10);
             this.panel11.Controls.Add(this.cokebtn);
-            this.panel11.Location = new System.Drawing.Point(35, 618);
+            this.panel11.Location = new System.Drawing.Point(35, 631);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(204, 230);
+            this.panel11.Size = new System.Drawing.Size(204, 272);
             this.panel11.TabIndex = 6;
+            // 
+            // lblCokeStcks
+            // 
+            this.lblCokeStcks.AutoSize = true;
+            this.lblCokeStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCokeStcks.Location = new System.Drawing.Point(78, 238);
+            this.lblCokeStcks.Name = "lblCokeStcks";
+            this.lblCokeStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblCokeStcks.TabIndex = 12;
+            this.lblCokeStcks.Text = "10";
+            this.lblCokeStcks.Click += new System.EventHandler(this.label23_Click_1);
             // 
             // cokeqty
             // 
@@ -447,15 +514,26 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.Controls.Add(this.lblPancitStcks);
             this.panel5.Controls.Add(this.panqty);
             this.panel5.Controls.Add(this.label16);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Controls.Add(this.pancitbtn);
-            this.panel5.Location = new System.Drawing.Point(557, 66);
+            this.panel5.Location = new System.Drawing.Point(557, 42);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(204, 230);
+            this.panel5.Size = new System.Drawing.Size(204, 266);
             this.panel5.TabIndex = 2;
+            // 
+            // lblPancitStcks
+            // 
+            this.lblPancitStcks.AutoSize = true;
+            this.lblPancitStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPancitStcks.Location = new System.Drawing.Point(79, 231);
+            this.lblPancitStcks.Name = "lblPancitStcks";
+            this.lblPancitStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblPancitStcks.TabIndex = 10;
+            this.lblPancitStcks.Text = "10";
             // 
             // panqty
             // 
@@ -493,6 +571,7 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pancitbtn
             // 
@@ -510,15 +589,27 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.lblTocinoStcks);
             this.panel7.Controls.Add(this.pizzqty);
             this.panel7.Controls.Add(this.label18);
             this.panel7.Controls.Add(this.label9);
             this.panel7.Controls.Add(this.pictureBox6);
             this.panel7.Controls.Add(this.pizzbtn);
-            this.panel7.Location = new System.Drawing.Point(295, 317);
+            this.panel7.Location = new System.Drawing.Point(295, 314);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(204, 230);
+            this.panel7.Size = new System.Drawing.Size(204, 266);
             this.panel7.TabIndex = 4;
+            // 
+            // lblTocinoStcks
+            // 
+            this.lblTocinoStcks.AutoSize = true;
+            this.lblTocinoStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTocinoStcks.Location = new System.Drawing.Point(86, 234);
+            this.lblTocinoStcks.Name = "lblTocinoStcks";
+            this.lblTocinoStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblTocinoStcks.TabIndex = 12;
+            this.lblTocinoStcks.Text = "10";
+            this.lblTocinoStcks.Click += new System.EventHandler(this.label23_Click);
             // 
             // pizzqty
             // 
@@ -573,15 +664,26 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.lblGinataanStcks);
             this.panel8.Controls.Add(this.ginataqty);
             this.panel8.Controls.Add(this.label19);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Controls.Add(this.pictureBox7);
             this.panel8.Controls.Add(this.ginabtn);
-            this.panel8.Location = new System.Drawing.Point(35, 317);
+            this.panel8.Location = new System.Drawing.Point(35, 314);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(204, 230);
+            this.panel8.Size = new System.Drawing.Size(204, 266);
             this.panel8.TabIndex = 3;
+            // 
+            // lblGinataanStcks
+            // 
+            this.lblGinataanStcks.AutoSize = true;
+            this.lblGinataanStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblGinataanStcks.Location = new System.Drawing.Point(78, 234);
+            this.lblGinataanStcks.Name = "lblGinataanStcks";
+            this.lblGinataanStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblGinataanStcks.TabIndex = 11;
+            this.lblGinataanStcks.Text = "10";
             // 
             // ginataqty
             // 
@@ -636,15 +738,26 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.lblHamStcks);
             this.panel4.Controls.Add(this.hambtn);
             this.panel4.Controls.Add(this.hamqty);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Location = new System.Drawing.Point(295, 66);
+            this.panel4.Location = new System.Drawing.Point(295, 42);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(204, 230);
+            this.panel4.Size = new System.Drawing.Size(204, 266);
             this.panel4.TabIndex = 1;
+            // 
+            // lblHamStcks
+            // 
+            this.lblHamStcks.AutoSize = true;
+            this.lblHamStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblHamStcks.Location = new System.Drawing.Point(79, 231);
+            this.lblHamStcks.Name = "lblHamStcks";
+            this.lblHamStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblHamStcks.TabIndex = 9;
+            this.lblHamStcks.Text = "10";
             // 
             // hambtn
             // 
@@ -697,13 +810,14 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monument Extended", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(255, 8);
+            this.label1.Location = new System.Drawing.Point(253, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(282, 44);
             this.label1.TabIndex = 1;
@@ -713,15 +827,26 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lblSiomaiStcks);
             this.panel3.Controls.Add(this.siombtn);
             this.panel3.Controls.Add(this.siomqty);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Location = new System.Drawing.Point(35, 66);
+            this.panel3.Location = new System.Drawing.Point(35, 42);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(204, 230);
+            this.panel3.Size = new System.Drawing.Size(204, 266);
             this.panel3.TabIndex = 0;
+            // 
+            // lblSiomaiStcks
+            // 
+            this.lblSiomaiStcks.AutoSize = true;
+            this.lblSiomaiStcks.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSiomaiStcks.Location = new System.Drawing.Point(81, 231);
+            this.lblSiomaiStcks.Name = "lblSiomaiStcks";
+            this.lblSiomaiStcks.Size = new System.Drawing.Size(32, 25);
+            this.lblSiomaiStcks.TabIndex = 8;
+            this.lblSiomaiStcks.Text = "10";
             // 
             // siombtn
             // 
@@ -894,25 +1019,12 @@
             this.btnPayment.UseVisualStyleBackColor = false;
             this.btnPayment.Click += new System.EventHandler(this.btnPayment_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(817, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(205, 77);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "STOCKS";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1348, 979);
+            this.ClientSize = new System.Drawing.Size(1348, 1009);
             this.Controls.Add(this.btnPayment);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.connectionbtn);
@@ -1042,5 +1154,14 @@
         private Button btnPayment;
         private Button button1;
         private Button button2;
+        private Label lblSiomaiStcks;
+        private Label lblHamStcks;
+        private Label lblPancitStcks;
+        private Label lblTocinoStcks;
+        private Label lblGinataanStcks;
+        private Label lblLumpiaStcks;
+        private Label lblCokeStcks;
+        private Label lblSpriteStcks;
+        private Label lblWaterStcks;
     }
 }

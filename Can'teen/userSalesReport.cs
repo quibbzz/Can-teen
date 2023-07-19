@@ -18,7 +18,40 @@ namespace Can_teen
         {
             InitializeComponent();
             myConn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\quibi\\Documents\\Database1.accdb");
+            printSales();
         }
+
+        public void printSales()
+        {
+            try
+            {
+                myConn.Open();
+
+                string selectDailyQuery = "SELECT TOP 1 daily_sales FROM sales_summary ORDER BY sales_id DESC";
+                using (OleDbCommand dailySalesCommand = new OleDbCommand(selectDailyQuery, myConn))
+                {
+                    object dailySales = dailySalesCommand.ExecuteScalar();
+                    if (dailySales != null && dailySales != DBNull.Value)
+                    {
+                        double daily = Convert.ToDouble(dailySales);
+                        lblDaily.Text = daily.ToString("₱ 0.00");
+                    }
+                    else
+                    {
+                        lblDaily.Text = "0.00";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving the daily sales: " + ex.Message);
+            }
+            finally
+            {
+                myConn.Close();
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

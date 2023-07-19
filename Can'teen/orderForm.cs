@@ -21,6 +21,7 @@ namespace Can_teen
         {
             InitializeComponent();
             myConn = new OleDbConnection("Provider= Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\quibi\\Documents\\Database1.accdb");
+            
         }
 
         OleDbConnection? myConn;
@@ -36,9 +37,170 @@ namespace Can_teen
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadGridData();
-
             RestTextBoxes();
             RestRadioBoxes();
+            PrintStocks();
+        }
+       
+
+        private void PrintStocks()
+        {
+            try
+            {
+                myConn.Open();
+
+                // Siomai
+                string siomaiStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 1";
+                using (OleDbCommand siomaiStockCommand = new OleDbCommand(siomaiStockQuery, myConn))
+                {
+                    object siomaiResult = siomaiStockCommand.ExecuteScalar();
+                    if (siomaiResult != null && siomaiResult != DBNull.Value)
+                    {
+                        int siomaiStock = Convert.ToInt32(siomaiResult);
+                        lblSiomaiStcks.Text = string.Format("{0}x", siomaiStock);
+
+                    }
+                    else
+                    {
+                        lblSiomaiStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Ham
+                string hamStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 2";
+                using (OleDbCommand hamStockCommand = new OleDbCommand(hamStockQuery, myConn))
+                {
+                    object hamResult = hamStockCommand.ExecuteScalar();
+                    if (hamResult != null && hamResult != DBNull.Value)
+                    {
+                        int hamStock = Convert.ToInt32(hamResult);
+                        lblHamStcks.Text = string.Format("{0}x", hamStock);
+                    }
+                    else
+                    {
+                        lblHamStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Pancit
+                string pancitStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 3";
+                using (OleDbCommand pancitStockCommand = new OleDbCommand(pancitStockQuery, myConn))
+                {
+                    object pancitResult = pancitStockCommand.ExecuteScalar();
+                    if (pancitResult != null && pancitResult != DBNull.Value)
+                    {
+                        int pancitStock = Convert.ToInt32(pancitResult);
+                        lblPancitStcks.Text = string.Format("{0}x", pancitStock);
+                    }
+                    else
+                    {
+                        lblPancitStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Ginataan
+                string ginataanStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 4";
+                using (OleDbCommand ginataanStockCommand = new OleDbCommand(ginataanStockQuery, myConn))
+                {
+                    object ginataanResult = ginataanStockCommand.ExecuteScalar();
+                    if (ginataanResult != null && ginataanResult != DBNull.Value)
+                    {
+                        int ginataanStock = Convert.ToInt32(ginataanResult);
+                        lblGinataanStcks.Text = string.Format("{0}x", ginataanStock);
+                    }
+                    else
+                    {
+                        lblGinataanStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Tocino
+                string tocinoStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 5";
+                using (OleDbCommand tocinoStockCommand = new OleDbCommand(tocinoStockQuery, myConn))
+                {
+                    object tocinoResult = tocinoStockCommand.ExecuteScalar();
+                    if (tocinoResult != null && tocinoResult != DBNull.Value)
+                    {
+                        int tocinoStock = Convert.ToInt32(tocinoResult);
+                        lblTocinoStcks.Text = string.Format("{0}x", tocinoStock);
+                    }
+                    else
+                    {
+                        lblTocinoStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Lumpia
+                string lumpiaStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 6";
+                using (OleDbCommand lumpiaStockCommand = new OleDbCommand(lumpiaStockQuery, myConn))
+                {
+                    object lumpiaResult = lumpiaStockCommand.ExecuteScalar();
+                    if (lumpiaResult != null && lumpiaResult != DBNull.Value)
+                    {
+                        int lumpiaStock = Convert.ToInt32(lumpiaResult);
+                        lblLumpiaStcks.Text = string.Format("{0}x", lumpiaStock);
+                    }
+                    else
+                    {
+                        lblLumpiaStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Coke
+                string cokeStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 7";
+                using (OleDbCommand cokeStockCommand = new OleDbCommand(cokeStockQuery, myConn))
+                {
+                    object cokeResult = cokeStockCommand.ExecuteScalar();
+                    if (cokeResult != null && cokeResult != DBNull.Value)
+                    {
+                        int cokeStock = Convert.ToInt32(cokeResult);
+                        lblCokeStcks.Text = string.Format("{0}x", cokeStock);
+                    }
+                    else
+                    {
+                        lblCokeStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Water
+                string waterStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 8";
+                using (OleDbCommand waterStockCommand = new OleDbCommand(waterStockQuery, myConn))
+                {
+                    object waterResult = waterStockCommand.ExecuteScalar();
+                    if (waterResult != null && waterResult != DBNull.Value)
+                    {
+                        int waterStock = Convert.ToInt32(waterResult);
+                        lblWaterStcks.Text = string.Format("{0}x", waterStock);
+                    }
+                    else
+                    {
+                        lblWaterStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                // Sprite
+                string spriteStockQuery = "SELECT [num_stock] FROM stock WHERE [stock_id] = 9";
+                using (OleDbCommand spriteStockCommand = new OleDbCommand(spriteStockQuery, myConn))
+                {
+                    object spriteResult = spriteStockCommand.ExecuteScalar();
+                    if (spriteResult != null && spriteResult != DBNull.Value)
+                    {
+                        int spriteStock = Convert.ToInt32(spriteResult);
+                        lblSpriteStcks.Text = string.Format("{0}x", spriteStock);
+                    }
+                    else
+                    {
+                        lblSpriteStcks.Text = "OUT OF STOCK";
+                    }
+                }
+
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while retrieving the stock data: " + ex.Message);
+            }
+
         }
 
 
@@ -417,8 +579,7 @@ namespace Can_teen
                         }
                     }
 
-                    // STOCK CHECKER 
-                    /*
+                    //STOCK CHECKER (ADD THE NAME OF THE PRODUCT )
                     string checkStocks = "SELECT [num_stock] FROM stock";
                     using (OleDbCommand selectStocksCommand = new OleDbCommand(checkStocks, myConn))
                     {
@@ -433,9 +594,7 @@ namespace Can_teen
                             
                         }
                     }
-                    */
-
-
+                    
                     myConn.Close();
                     LoadGridData();
 
@@ -548,6 +707,26 @@ namespace Can_teen
         {
             new productStocks().Show(); 
             this.Hide();    
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
