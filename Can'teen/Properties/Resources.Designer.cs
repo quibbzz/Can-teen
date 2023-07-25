@@ -123,6 +123,26 @@ namespace Can_teen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gcashLogoSmall {
+            get {
+                object obj = ResourceManager.GetObject("gcashLogoSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gcashLogoSmall1 {
+            get {
+                object obj = ResourceManager.GetObject("gcashLogoSmall1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HEADER {
             get {
                 object obj = ResourceManager.GetObject("HEADER", resourceCulture);
@@ -203,6 +223,16 @@ namespace Can_teen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mayaLogoSmall {
+            get {
+                object obj = ResourceManager.GetObject("mayaLogoSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mayaRec {
             get {
                 object obj = ResourceManager.GetObject("mayaRec", resourceCulture);
@@ -243,6 +273,16 @@ namespace Can_teen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap siomai {
+            get {
+                object obj = ResourceManager.GetObject("siomai", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap smallLogo {
             get {
                 object obj = ResourceManager.GetObject("smallLogo", resourceCulture);
@@ -256,6 +296,26 @@ namespace Can_teen.Properties {
         internal static System.Drawing.Bitmap Teknoy_s {
             get {
                 object obj = ResourceManager.GetObject("Teknoy\'s", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Teknoy_s1 {
+            get {
+                object obj = ResourceManager.GetObject("Teknoy\'s1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Teknoy_s2 {
+            get {
+                object obj = ResourceManager.GetObject("Teknoy\'s2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -62,7 +62,7 @@ namespace Can_teen
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            lblID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             txtName.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             txtUsername.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             txtPassword.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
@@ -87,7 +87,7 @@ namespace Can_teen
             cmd.Parameters.AddWithValue("@Address", txtAddress.Text);
             cmd.Parameters.AddWithValue("@Age", txtAge.Text);
             cmd.Parameters.AddWithValue("@PhoneNum", txtPhone.Text);
-            cmd.Parameters.AddWithValue("@Id", Convert.ToInt32(txtID.Text));
+            cmd.Parameters.AddWithValue("@Id", Convert.ToInt32(lblID.Text));
 
             con.Open();
             cmd.ExecuteNonQuery();
@@ -100,12 +100,17 @@ namespace Can_teen
         {
             string query = "DELETE FROM user_accounts WHERE account_id = @Id";
             cmd = new OleDbCommand(query, con);
-            cmd.Parameters.AddWithValue("@Id", Convert.ToInt32(txtID.Text));
+            cmd.Parameters.AddWithValue("@Id", Convert.ToInt32(lblID.Text));
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("deleted successfully");
             //showStud();
+        }
+
+        private void accountList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

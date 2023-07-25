@@ -31,7 +31,7 @@ namespace Can_teen
             {
                 con.Open();
 
-                string selectQuery = "SELECT * FROM stock"; 
+                string selectQuery = "SELECT * FROM stock";
 
                 da = new OleDbDataAdapter(selectQuery, con);
                 ds = new DataSet();
@@ -40,12 +40,17 @@ namespace Can_teen
                 dataGridView1.DataSource = ds.Tables["stocks"];
 
                 con.Close();
+
+                // Increase Font Size
+                dataGridView1.DefaultCellStyle.Font = new Font("Arial", 12);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while loading account data: " + ex.Message);
             }
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,6 +110,21 @@ namespace Can_teen
         }
 
         private void txtStocks_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void productStocks_Load(object sender, EventArgs e)
         {
 
         }

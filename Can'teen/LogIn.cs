@@ -35,43 +35,49 @@ namespace Can_teen
 
         private void savebtn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string login = "SELECT * FROM user_accounts WHERE username= @username and password= @password";
-            cmd = new OleDbCommand(login, con);
-            cmd.Parameters.AddWithValue("@username", txtUser.Text);
-            cmd.Parameters.AddWithValue("@password", txtpass.Text);
-
-            DataSet ds = new DataSet();
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
-            da.Fill(ds);
-
-            while (true)
+            try
             {
-                if (ds.Tables[0].Rows.Count > 0)
+                con.Open();
+
+                string loginQuery = "SELECT role_id FROM user_accounts WHERE username = @username AND password = @password";
+                cmd = new OleDbCommand(loginQuery, con);
+                cmd.Parameters.AddWithValue("@username", txtUser.Text);
+                cmd.Parameters.AddWithValue("@password", txtpass.Text);
+
+                object roleResult = cmd.ExecuteScalar();
+
+                if (roleResult != null && roleResult != DBNull.Value)
                 {
-                    if (txtUser.Text == "admin")
+                    string role = roleResult.ToString();
+                    if (role == "1")
                     {
                         new adminMain().Show();
                         this.Hide();
-                        break;
                     }
-                    else
+                    else if(role == "0")
                     {
                         new orderForm().Show();
                         this.Hide();
-                        break; 
                     }
                 }
                 else
                 {
                     MessageBox.Show("Invalid Username or Password, Please Try Again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtpass.Text = "";
-                    txtpass.Text = "";
+                    txtUser.Text = "";
                     txtUser.Focus();
-                    break;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred during login: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
+
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

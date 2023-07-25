@@ -641,6 +641,7 @@ namespace Can_teen
                 myConn.Open();
 
                 string selectOrderQuery = "SELECT * FROM [Orders] ORDER BY ID DESC";
+                
                 //string selectOrderQuery = "SELECT TOP 1 FROM [Orders] WHERE column1 IS NOT NULL AND column2 IS NOT NULL AND column3 IS NOT NULL ORDER BY ID DESC";
 
                 da = new OleDbDataAdapter(selectOrderQuery, myConn);
@@ -655,6 +656,7 @@ namespace Can_teen
                 MessageBox.Show("An error occurred while loading the order data: " + ex.Message);
             }
         }
+
 
         private void gridOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -725,6 +727,16 @@ namespace Can_teen
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

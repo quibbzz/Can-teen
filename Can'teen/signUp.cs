@@ -23,6 +23,19 @@ namespace Can_teen
         OleDbCommand? cmd;
         DataSet? ds;
 
+        public string isAdmin()
+        {
+            if(checkBox1.Checked)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
+               
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -59,11 +72,12 @@ namespace Can_teen
             try
             {
                 con.Open();
-                string insertQuery = "INSERT INTO user_accounts ([user_name], [username], [password], [address], [age], [phone_num]) " +
-                    "VALUES (@Name, @Username, @Password, @Address, @Age, @Phone)";
+                string insertQuery = "INSERT INTO user_accounts ([role_id], [user_name], [username], [password], [address], [age], [phone_num]) " +
+                    "VALUES (@Role, @Name, @Username, @Password, @Address, @Age, @Phone)";
 
                 using (OleDbCommand cmd = new OleDbCommand(insertQuery, con))
                 {
+                    cmd.Parameters.AddWithValue("@Role", isAdmin());
                     cmd.Parameters.AddWithValue("@Name", txtName.Text);
                     cmd.Parameters.AddWithValue("@Username", textUsername.Text);
                     cmd.Parameters.AddWithValue("@Password", textPassword.Text);
@@ -97,6 +111,36 @@ namespace Can_teen
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

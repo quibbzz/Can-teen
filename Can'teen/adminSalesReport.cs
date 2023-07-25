@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace Can_teen
             Monthly();
             Yearly();
             //SalesSummary();
+            GetTotalOrders();
+            getGcashTotal();
         }
 
         OleDbConnection? cn;
@@ -31,6 +34,133 @@ namespace Can_teen
         {
             cn = new OleDbConnection("Provider= Microsoft.ACE.OLEDB.12.0; Data Source=C:\\Users\\quibi\\Documents\\Database1.accdb");
         }
+
+        public void loadGridData()
+        {
+            cn.Open();
+
+            DateTime selectedDateFrom = dateFrom.Value.Date; // Set to the beginning of the selected day (12 AM)
+            DateTime selectedDateTo = dateTo.Value.Date.AddDays(1).AddSeconds(-1); // Set to the end of the selected day (11:59 PM)
+
+
+            string selectOrdersTimeFrame = "SELECT * FROM Orders WHERE added_on BETWEEN @StartDate AND @EndDate";
+            using (OleDbCommand cmd = new OleDbCommand(selectOrdersTimeFrame, cn))
+            {
+
+                cmd.Parameters.AddWithValue("@DateTo", selectedDateFrom);
+                cmd.Parameters.AddWithValue("@DateTo", selectedDateTo);
+
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                {
+                    DataTable orderTable = new DataTable();
+                    adapter.Fill(orderTable);
+
+                    // Bind the data to the dataGridView1 DataGridView
+                    DataGridTable.DataSource = orderTable;
+                }
+            }
+        }
+
+        public void GetTotalOrders()
+        {
+            try
+            {
+                cn.Open();
+
+                string countOrders = "SELECT COUNT(ID) FROM Orders";
+                using (OleDbCommand cmd = new OleDbCommand(countOrders, cn))
+                {
+                    // Execute the query and get the result
+                    int totalOrdersCount = (int)cmd.ExecuteScalar();
+
+                    // Set the label's text to the totalOrdersCount
+                    lblOrders.Text = totalOrdersCount.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        public void getGcashTotal()
+        {
+            try
+            {
+                cn.Open();
+
+                string totalAmountGcash = "SELECT SUM(total_amount) FROM payment WHERE payment_method = 'GCASH'";
+                using (OleDbCommand cmd = new OleDbCommand(totalAmountGcash, cn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        // Convert the result to decimal data type to represent currency
+                        decimal gcashTotal = Convert.ToDecimal(result);
+
+                        // Set the label's text to the formatted currency value
+                        lblGcash.Text = gcashTotal.ToString("C2");
+                    }
+                    else
+                    {
+                        // If there is no data, set the label's text to indicate that
+                        lblGcash.Text = "0.00";
+                    }
+                }
+                string totalAmountCash = "SELECT SUM(total_amount) FROM payment WHERE payment_method = 'CASH'";
+                using (OleDbCommand cmd = new OleDbCommand(totalAmountCash, cn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        // Convert the result to decimal data type to represent currency
+                        decimal gcashTotal = Convert.ToDecimal(result);
+
+                        // Set the label's text to the formatted currency value
+                        lblCash.Text = gcashTotal.ToString("C2");
+                    }
+                    else
+                    {
+                        // If there is no data, set the label's text to indicate that
+                        lblCash.Text = "0.00";
+                    }
+                }
+                string totalAmountMaya = "SELECT SUM(total_amount) FROM payment WHERE payment_method = 'MAYA'";
+                using (OleDbCommand cmd = new OleDbCommand(totalAmountMaya, cn))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        // Convert the result to decimal data type to represent currency
+                        decimal gcashTotal = Convert.ToDecimal(result);
+
+                        // Set the label's text to the formatted currency value
+                        lblMaya.Text = gcashTotal.ToString("C2");
+                    }
+                    else
+                    {
+                        // If there is no data, set the label's text to indicate that
+                        lblMaya.Text = "0.00";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+
+
+
 
         public double GetTotal(string acc)
         {
@@ -261,7 +391,7 @@ namespace Can_teen
 
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -275,6 +405,36 @@ namespace Can_teen
             {
                 SalesSummary();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadGridData();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adminSalesReport_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

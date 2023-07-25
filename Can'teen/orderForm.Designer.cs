@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -106,8 +107,6 @@
             this.resetbtn = new System.Windows.Forms.Button();
             this.exitbtn = new System.Windows.Forms.Button();
             this.gridOrders = new System.Windows.Forms.DataGridView();
-            this.connectionbtn = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnPayment = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -144,6 +143,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1348, 100);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
@@ -266,7 +266,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(29, 15);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(148, 143);
@@ -340,7 +340,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(29, 15);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(148, 143);
@@ -414,7 +414,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(29, 15);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(148, 143);
@@ -490,7 +490,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(29, 15);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(148, 143);
@@ -564,7 +564,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(29, 15);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(148, 143);
@@ -640,7 +640,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(29, 15);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(148, 143);
@@ -714,7 +714,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(29, 15);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(148, 143);
@@ -803,7 +803,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Can_teen.Properties.Resources.food;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(29, 15);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(148, 143);
@@ -891,11 +891,10 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Can_teen.Properties.Resources.food;
-            this.pictureBox2.Location = new System.Drawing.Point(29, 15);
+            this.pictureBox2.Image = global::Can_teen.Properties.Resources.siomai;
+            this.pictureBox2.Location = new System.Drawing.Point(29, 17);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(148, 143);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -903,38 +902,40 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(828, 124);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(828, 163);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 18);
+            this.label3.Size = new System.Drawing.Size(189, 25);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Customer\'s Name: ";
+            this.label3.Text = "CUSTOMER\'S NAME";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtboxCustomername
             // 
-            this.txtboxCustomername.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtboxCustomername.Location = new System.Drawing.Point(1033, 112);
+            this.txtboxCustomername.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtboxCustomername.Location = new System.Drawing.Point(828, 112);
             this.txtboxCustomername.Name = "txtboxCustomername";
-            this.txtboxCustomername.Size = new System.Drawing.Size(294, 30);
+            this.txtboxCustomername.Size = new System.Drawing.Size(499, 47);
             this.txtboxCustomername.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(817, 769);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(828, 705);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 18);
+            this.label4.Size = new System.Drawing.Size(119, 38);
             this.label4.TabIndex = 9;
             this.label4.Text = "TOTAL:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(905, 762);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Black", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(954, 699);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(422, 30);
+            this.textBox1.Size = new System.Drawing.Size(373, 44);
             this.textBox1.TabIndex = 10;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -943,7 +944,7 @@
             this.savebtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.savebtn.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.savebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.savebtn.Location = new System.Drawing.Point(828, 866);
+            this.savebtn.Location = new System.Drawing.Point(828, 762);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(499, 50);
             this.savebtn.TabIndex = 11;
@@ -956,9 +957,9 @@
             this.resetbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(14)))));
             this.resetbtn.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.resetbtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.resetbtn.Location = new System.Drawing.Point(828, 920);
+            this.resetbtn.Location = new System.Drawing.Point(828, 874);
             this.resetbtn.Name = "resetbtn";
-            this.resetbtn.Size = new System.Drawing.Size(265, 42);
+            this.resetbtn.Size = new System.Drawing.Size(499, 55);
             this.resetbtn.TabIndex = 12;
             this.resetbtn.Text = "RESET";
             this.resetbtn.UseVisualStyleBackColor = false;
@@ -969,9 +970,9 @@
             this.exitbtn.BackColor = System.Drawing.Color.White;
             this.exitbtn.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.exitbtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.exitbtn.Location = new System.Drawing.Point(1099, 922);
+            this.exitbtn.Location = new System.Drawing.Point(828, 935);
             this.exitbtn.Name = "exitbtn";
-            this.exitbtn.Size = new System.Drawing.Size(228, 38);
+            this.exitbtn.Size = new System.Drawing.Size(499, 47);
             this.exitbtn.TabIndex = 13;
             this.exitbtn.Text = "EXIT";
             this.exitbtn.UseVisualStyleBackColor = false;
@@ -980,38 +981,20 @@
             // gridOrders
             // 
             this.gridOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridOrders.Location = new System.Drawing.Point(828, 148);
+            this.gridOrders.Location = new System.Drawing.Point(828, 191);
             this.gridOrders.Name = "gridOrders";
             this.gridOrders.RowHeadersWidth = 51;
             this.gridOrders.RowTemplate.Height = 29;
-            this.gridOrders.Size = new System.Drawing.Size(499, 564);
+            this.gridOrders.Size = new System.Drawing.Size(499, 488);
             this.gridOrders.TabIndex = 16;
             this.gridOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridOrders_CellContentClick);
-            // 
-            // connectionbtn
-            // 
-            this.connectionbtn.Location = new System.Drawing.Point(935, 719);
-            this.connectionbtn.Name = "connectionbtn";
-            this.connectionbtn.Size = new System.Drawing.Size(124, 29);
-            this.connectionbtn.TabIndex = 17;
-            this.connectionbtn.Text = "connection test";
-            this.connectionbtn.UseVisualStyleBackColor = true;
-            this.connectionbtn.Click += new System.EventHandler(this.connectionbtn_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1077, 718);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 18;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnPayment
             // 
             this.btnPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(184)))), ((int)(((byte)(14)))));
             this.btnPayment.Font = new System.Drawing.Font("Monument Extended", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPayment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnPayment.Location = new System.Drawing.Point(828, 810);
+            this.btnPayment.Location = new System.Drawing.Point(828, 818);
             this.btnPayment.Name = "btnPayment";
             this.btnPayment.Size = new System.Drawing.Size(499, 50);
             this.btnPayment.TabIndex = 19;
@@ -1026,8 +1009,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1348, 1009);
             this.Controls.Add(this.btnPayment);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.connectionbtn);
             this.Controls.Add(this.gridOrders);
             this.Controls.Add(this.exitbtn);
             this.Controls.Add(this.resetbtn);
@@ -1149,8 +1130,6 @@
         private RadioButton hambtn;
         private RadioButton siombtn;
         private DataGridView gridOrders;
-        private Button connectionbtn;
-        private DateTimePicker dateTimePicker1;
         private Button btnPayment;
         private Button button1;
         private Button button2;

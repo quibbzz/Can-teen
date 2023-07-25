@@ -23,6 +23,19 @@ namespace Can_teen
         OleDbCommand? cmd;
         DataSet? ds;
 
+        public string isAdmin()
+        {
+            if (checkBox1.Checked)
+            {
+                return "1";
+            }
+            else
+            {
+                return "0";
+            }
+
+        }
+
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -39,11 +52,12 @@ namespace Can_teen
             try
             {
                 con.Open();
-                string insertQuery = "INSERT INTO user_accounts ([user_name], [username], [password], [address], [age], [phone_num]) " +
-                    "VALUES (@Name, @Username, @Password, @Address, @Age, @Phone)";
+                string insertQuery = "INSERT INTO user_accounts ([role_id], [user_name], [username], [password], [address], [age], [phone_num]) " +
+                    "VALUES (@Role, @Name, @Username, @Password, @Address, @Age, @Phone)";
 
                 using (OleDbCommand cmd = new OleDbCommand(insertQuery, con))
                 {
+                    cmd.Parameters.AddWithValue("@Role", isAdmin());
                     cmd.Parameters.AddWithValue("@Name", txtName.Text);
                     cmd.Parameters.AddWithValue("@Username", txtUsername.Text);
                     cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
@@ -53,7 +67,7 @@ namespace Can_teen
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("NEW CASHIER CREATED.");
+                MessageBox.Show("Registration successful.");
             }
             catch (Exception ex)
             {
