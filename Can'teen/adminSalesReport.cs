@@ -24,7 +24,7 @@ namespace Can_teen
             Yearly();
             //SalesSummary();
             GetTotalOrders();
-            getGcashTotal();
+            getPaymentTotal();
         }
 
         OleDbConnection? cn;
@@ -87,7 +87,7 @@ namespace Can_teen
             }
         }
 
-        public void getGcashTotal()
+        public void getPaymentTotal()
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Can_teen
                         decimal gcashTotal = Convert.ToDecimal(result);
 
                         // Set the label's text to the formatted currency value
-                        lblGcash.Text = gcashTotal.ToString("C2");
+                        lblGcash.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
@@ -121,7 +121,7 @@ namespace Can_teen
                         decimal gcashTotal = Convert.ToDecimal(result);
 
                         // Set the label's text to the formatted currency value
-                        lblCash.Text = gcashTotal.ToString("C2");
+                        lblCash.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
@@ -139,7 +139,7 @@ namespace Can_teen
                         decimal gcashTotal = Convert.ToDecimal(result);
 
                         // Set the label's text to the formatted currency value
-                        lblMaya.Text = gcashTotal.ToString("C2");
+                        lblMaya.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
@@ -433,6 +433,11 @@ namespace Can_teen
         }
 
         private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

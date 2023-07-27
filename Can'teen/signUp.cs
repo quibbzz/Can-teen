@@ -144,5 +144,11 @@ namespace Can_teen
         {
 
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new LogIn().Show();
+            this.Close();
+        }
     }
 }

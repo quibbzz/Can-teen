@@ -40,5 +40,11 @@ namespace Can_teen
             new adminSalesReport().Show();
             this.Hide();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new adminProductStocks().Show();
+            this.Hide();
+        }
     }
 }

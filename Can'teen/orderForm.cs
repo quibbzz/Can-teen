@@ -579,7 +579,7 @@ namespace Can_teen
                         }
                     }
 
-                    //STOCK CHECKER (ADD THE NAME OF THE PRODUCT )
+                   
                     string checkStocks = "SELECT [num_stock] FROM stock";
                     using (OleDbCommand selectStocksCommand = new OleDbCommand(checkStocks, myConn))
                     {
@@ -596,6 +596,11 @@ namespace Can_teen
                     }
                     
                     myConn.Close();
+                    this.Close();
+                    orderForm of = new orderForm();
+                    of.Show();
+                    RestTextBoxes();
+                    RestRadioBoxes();
                     LoadGridData();
 
 
@@ -607,25 +612,6 @@ namespace Can_teen
             }
 
         }
-
-        /*
-        private double CalculateTotalAmount()
-        {
-            double totalAmount = 0;
-
-            totalAmount += GetQuantity(siomqty.Text);
-            totalAmount += GetQuantity(hamqty.Text) * PriceHam;
-            totalAmount += GetQuantity(panqty.Text) * PricePancit;
-            totalAmount += GetQuantity(ginataqty.Text) * PriceGinataan;
-            totalAmount += GetQuantity(pizzqty.Text) * PriceTocino;
-            totalAmount += GetQuantity(lumpqty.Text) * PriceLumpia;
-            totalAmount += GetQuantity(cokeqty.Text) * PriceCoke;
-            totalAmount += GetQuantity(waterqty.Text) * PriceWater;
-            totalAmount += GetQuantity(spriteqty.Text) * PriceSprite;
-
-            return totalAmount;
-        }
-        */
 
         private int GetQuantity(string quantityText)
         {
@@ -642,8 +628,6 @@ namespace Can_teen
 
                 string selectOrderQuery = "SELECT * FROM [Orders] ORDER BY ID DESC";
                 
-                //string selectOrderQuery = "SELECT TOP 1 FROM [Orders] WHERE column1 IS NOT NULL AND column2 IS NOT NULL AND column3 IS NOT NULL ORDER BY ID DESC";
-
                 da = new OleDbDataAdapter(selectOrderQuery, myConn);
                 ds = new DataSet();
                 da.Fill(ds, "Orders");
@@ -662,24 +646,16 @@ namespace Can_teen
         {
             try
             {
-                //string selectedDate = dateTimePicker1.Value.ToShortDateString();
                 myConn.Open();
-
-                // Retrieve the orders for the selected date from the Order table
-                //string selectOrderQuery = "SELECT * FROM [Order] WHERE added_on = @OrderDate"; // Replace YourDateColumnName with the actual column name in your table
-                //using (OleDbCommand cmd = new OleDbCommand(selectOrdersQuery, myConn))
-                //{
-                //cmd.Parameters.AddWithValue("@orderdatee", added_on);
 
                 using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
                 {
                     DataTable orderTable = new DataTable();
                     adapter.Fill(orderTable);
 
-                    // Bind the data to the gridOrders DataGridView
                     gridOrders.DataSource = orderTable;
                 }
-                //}
+               
                 myConn.Close();
             }
             catch (Exception ex)
@@ -694,7 +670,6 @@ namespace Can_teen
         private void btnPayment_Click(object sender, EventArgs e)
         {
             new paymentOpt().Show();
-            this.Hide();
         }
         private void label4_Click(object sender, EventArgs e)
         {
@@ -736,6 +711,15 @@ namespace Can_teen
 
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 

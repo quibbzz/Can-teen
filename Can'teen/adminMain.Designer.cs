@@ -115,10 +115,12 @@
             this.button5.TabIndex = 6;
             this.button5.Text = "STOCKS";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImage = global::Can_teen.Properties.Resources.Beige_Ilustration_Virtual_Zoom_Background;
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
