@@ -70,10 +70,7 @@ namespace Can_teen
                 string countOrders = "SELECT COUNT(ID) FROM Orders";
                 using (OleDbCommand cmd = new OleDbCommand(countOrders, cn))
                 {
-                    // Execute the query and get the result
                     int totalOrdersCount = (int)cmd.ExecuteScalar();
-
-                    // Set the label's text to the totalOrdersCount
                     lblOrders.Text = totalOrdersCount.ToString();
                 }
             }
@@ -99,15 +96,14 @@ namespace Can_teen
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
-                        // Convert the result to decimal data type to represent currency
+                        
                         decimal gcashTotal = Convert.ToDecimal(result);
-
-                        // Set the label's text to the formatted currency value
+                        
                         lblGcash.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
-                        // If there is no data, set the label's text to indicate that
+                        
                         lblGcash.Text = "0.00";
                     }
                 }
@@ -117,15 +113,13 @@ namespace Can_teen
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
-                        // Convert the result to decimal data type to represent currency
+                        
                         decimal gcashTotal = Convert.ToDecimal(result);
 
-                        // Set the label's text to the formatted currency value
                         lblCash.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
-                        // If there is no data, set the label's text to indicate that
                         lblCash.Text = "0.00";
                     }
                 }
@@ -135,15 +129,13 @@ namespace Can_teen
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
-                        // Convert the result to decimal data type to represent currency
+                        
                         decimal gcashTotal = Convert.ToDecimal(result);
 
-                        // Set the label's text to the formatted currency value
                         lblMaya.Text = gcashTotal.ToString("#,##0.00");
                     }
                     else
                     {
-                        // If there is no data, set the label's text to indicate that
                         lblMaya.Text = "0.00";
                     }
                 }

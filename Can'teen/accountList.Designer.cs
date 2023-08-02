@@ -286,6 +286,7 @@
             this.label1.Size = new System.Drawing.Size(458, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "LIST OF ACCOUNTS";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dataGridView1
             // 
